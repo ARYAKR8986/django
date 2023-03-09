@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <table class="table mt-5 table-striped">
+            <tr>
+                <th>Female</th>
+                <th>Health risk</th>
+                <th>Body shape</th>
+            </tr>
+            <tr class="table-success">
+                <td>0.80 or below</td>
+                <td>Low</td>
+                <td>Pear</td>
+            </tr>
+            <tr class="table-warning">
+                <td>0.81 to 0.85</td>
+                <td>Moderate</td>
+                <td>Avocado</td>
+            </tr>
+            <tr class="table-danger">
+                <td>0.85 above</td>
+                <td>High</td>
+                <td>Apple</td>
+            </tr>
+        </table>
+    
+        <table class="table mt-3 table-striped">
+            <tr>
+                <th>Male</th>
+                <th>Health risk</th>
+                <th>Body shape</th>
+            </tr>
+            <tr class="table-success">
+                <td>0.80 or below</td>
+                <td>Low</td>
+                <td>Pear</td>
+            </tr>
+            <tr class="table-warning">
+                <td>0.81 to 0.85</td>
+                <td>Moderate</td>
+                <td>Avocado</td>
+            </tr>
+            <tr class="table-danger">
+                <td>0.85 above</td>
+                <td>High</td>
+                <td>Apple</td>
+            </tr>
+        </table>
+    
+    
+    
+    
+    
+    
+        <h1>let's check how healthy you are</h1>
+        <form action="" method="post">
+            {%csrf_token%}
+            <input type="text" name="tummysize" placeholder="enter size">
+            <input type="text" name="buttocksize" placeholder="enter size">
+            <input type="text"name="gender" placeholder="enter gender">
+            <input type="submit" value="find">
+        </form>
+        {%if risk%}
+            {%if risk == "high" %}
+            <div class="bg-danger text-white">
+                {{gender}} {{risk}} {{shape}} {{bmi}}
+    
+            </div>
+            {%endif%}
+            {%if risk == "moderate"%}
+            <div class="bg-warning text-white">
+                {{gender}} {{risk}} {{shape}} {{bmi}}
+    
+            </div>
+            {%endif%}
+            {%if risk == "low"%}
+            <div class="bg-success text-white">
+                {{gender}} {{risk}} {{shape}} {{bmi}}
+    
+            </div>
+            {%endif%}
+    
+        {%endif%}
+    </div>
+
+    
+
+</body>
+</html>
